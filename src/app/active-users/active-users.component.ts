@@ -4,7 +4,8 @@ import { UsersUpdate } from '../users-update.service'
 @Component({
   selector: 'app-active-users',
   templateUrl: './active-users.component.html',
-  styleUrls: ['./active-users.component.css']
+  styleUrls: ['./active-users.component.css'],
+  providers: [UsersUpdate] //this instantiation necessary to prevent error in splicing
 })
 export class ActiveUsersComponent {
   @Input() users: string[];

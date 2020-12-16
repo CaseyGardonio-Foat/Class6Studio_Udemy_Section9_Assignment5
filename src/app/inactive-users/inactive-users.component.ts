@@ -5,6 +5,7 @@ import { UsersUpdate } from '../users-update.service'
   selector: 'app-inactive-users',
   templateUrl: './inactive-users.component.html',
   styleUrls: ['./inactive-users.component.css'],
+  providers: [UsersUpdate] //this instantiation necessary to prevent error in splicing
 })
 export class InactiveUsersComponent {
   @Input() users: string[];
