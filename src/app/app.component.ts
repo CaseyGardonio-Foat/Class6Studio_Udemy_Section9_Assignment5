@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersUpdate } from './users-update.service'
+import { UsersUpdate } from './users-update.service';
 
 @Component({
   selector: 'app-root',
@@ -7,24 +7,13 @@ import { UsersUpdate } from './users-update.service'
   styleUrls: ['./app.component.css'],
   providers: [UsersUpdate]
 })
-export class AppComponent implements OnInit {
-  activeUsers: string[]= [];
-  inactiveUsers: string[] = [];
+export class AppComponent {
+  counterValue: number = 0;
 
   constructor(private usersUpdate: UsersUpdate){}
 
-  ngOnInit() {
-    this.activeUsers = this.usersUpdate.activeUsers;
-    this.inactiveUsers = this.usersUpdate.inactiveUsers
-  }
-
-  onSetToInactive(id: number) {
-    this.inactiveUsers.push(this.activeUsers[id]);
-    this.activeUsers.splice(id, 1);
-  }
-
-  onSetToActive(id: number) {
-    this.activeUsers.push(this.inactiveUsers[id]);
-    this.inactiveUsers.splice(id, 1);
+  onCounterUpdate(eventData: number) {
+    console.log(`status change registered: ${this.counterValue}`);
+    this.counterValue = eventData;
   }
 }
