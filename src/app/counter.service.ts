@@ -6,6 +6,7 @@ export class CounterService {
 
     onStatusChange(){
         this.counterValue++;
+        console.log(`status change registered: ${this.counterValue}`); //this is unsatisfactory
         this.counterUpdate.emit(this.counterValue)
     }
 }
